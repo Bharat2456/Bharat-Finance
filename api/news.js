@@ -1,0 +1,2 @@
+import { fetchFeed, newsUrl, validSymbol, UpstreamError } from './_yahoo.js'; import { wrap } from './_http.js';
+export default wrap(async (p) => { if (!validSymbol(p.symbol)) throw new UpstreamError('Invalid symbol.', 'bad-request', 400); return { type: 'application/xml; charset=utf-8', body: await fetchFeed(p.url || newsUrl(p.symbol, p.market === 'IN' ? 'IN' : 'US')) }; }, () => 'public, s-maxage=300');

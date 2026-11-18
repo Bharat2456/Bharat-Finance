@@ -1,0 +1,20 @@
+{
+  "name": "bharat-finance",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Open-source, local-first stock market learning, analysis and paper-trading platform (India NSE/BSE + US). Static site + small data relay. Plus a Local Edition for assisted/automated trading on your own computer.",
+  "license": "MIT",
+  "author": "Bharat Chandrakant Wagh",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "dev": "node scripts/serve.mjs web",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs dist",
+    "test": "node --test tests/js/*.test.js",
+    "test:local": "python3 -I -m unittest discover -s tests/py -v",
+    "local": "python3 local --web web",
+    "pack:local": "python3 scripts/make_local_zip.py",
+    "test:all": "npm run test && npm run test:local"
+  }
+}
